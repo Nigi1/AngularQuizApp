@@ -1,0 +1,28 @@
+<div class="result-con">
+  <div class="result-message">
+    <h3>{{ resultMessage() }}</h3>
+    <p>{{ result().correct }} / {{ result().total }}</p>
+  </div>
+
+  <div class="result-button-con">
+    <button id="retry-button" (click)="retryQuiz()">Erneut versuchen</button>
+    <button id="homepage-button" (click)="navigateToStart()">Zurück zur Quiz-Übersicht</button>
+    <button id="details-button" (click)="hideResult = !hideResult">Details anzeigen</button>
+  </div>
+
+  @if (!hideResult) {
+    <div class="answer-details">
+      @for (answer of result().answerSummary; track $index) {
+        <div class="question-block">
+          <h3>Frage: {{ answer.question }}</h3>
+          @if (answer.correct) {
+            <p class="user-answer correct">Deine Antwort: {{ answer.userAnswer | answers }}</p>
+          } @else {
+            <p class="user-answer incorrect">Deine Antwort: {{ answer.userAnswer | answers }}</p>
+            <p class="correct-answer">Richtige Antwort: {{ answer.correctAnswer | answers }}</p>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

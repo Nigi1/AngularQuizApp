@@ -1,0 +1,10 @@
+<div class="quiz-selection">
+  <h3 class="selection-title">Wähle ein Quiz:</h3>
+  @for (quiz of quizzes; track quiz.id) {
+    <div class="quiz-card">
+      <h3 class="quiz-name">{{ quiz.name }}</h3>
+      <p class="quiz-description">{{ quiz.description }}</p>
+      <button class="start-button" (click)="starteQuiz(quiz.id)">Starte Quiz</button>
+    </div>
+  }
+</div>
