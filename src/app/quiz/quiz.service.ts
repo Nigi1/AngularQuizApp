@@ -5,8 +5,6 @@ import { Answers, AnswerSummary, QuizQuestion, Result } from './quiz.model';
   providedIn: 'root',
 })
 export class QuizService {
-  // das würde ich in eine seperate datei `quiz.data.ts` oder so ähnlich auslagern und dann hier importieren
-  // einfach der Übersicht halber
   private quizzes: { [key: number]: QuizQuestion[] } = {
     1: [
       {
